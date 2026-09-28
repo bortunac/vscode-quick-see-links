@@ -2,9 +2,10 @@
   "name": "quick-see-links",
   "displayName": "Quick @see Links",
   "description": "Turns // @see path/to/file:line or path#Class.method comments into clickable links, in any file type or language.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "bortunac",
   "license": "MIT",
+  "icon": "buha.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/bortunac/vscode-quick-see-links.git"
@@ -20,8 +21,7 @@
     "Other"
   ],
   "keywords": [
-    "@see",
-    "@link",
+    "see",
     "link",
     "comment",
     "navigation",
