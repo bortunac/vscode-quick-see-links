@@ -1,0 +1,78 @@
+{
+  "name": "quick-see-links",
+  "displayName": "Quick @see Links",
+  "description": "Turns // @see path/to/file:line or path#Class.method comments into clickable links, in any file type or language.",
+  "version": "0.1.0",
+  "publisher": "bortunac",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bortunac/vscode-quick-see-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bortunac/vscode-quick-see-links/issues"
+  },
+  "homepage": "https://github.com/bortunac/vscode-quick-see-links#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "@see",
+    "@link",
+    "link",
+    "comment",
+    "navigation",
+    "jump to file"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "quickSeeLinks.copyLink",
+        "title": "Copy @see Link"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "quickSeeLinks.copyLink",
+          "when": "resourceScheme == file",
+          "group": "9_cutcopypaste"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Quick @see Links",
+      "properties": {
+        "quickSeeLinks.tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "@see",
+            "@link"
+          ],
+          "description": "The tag(s) that precede a path reference, e.g. @see or @link. A comment like \"// @see ../php/path/class.php:123\" becomes a clickable link."
+        },
+        "quickSeeLinks.rootRelativePrefix.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "If true, a path starting with '/' is resolved from the workspace root instead of the filesystem root."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.2.1"
+  }
+}
